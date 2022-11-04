@@ -9,12 +9,12 @@
 config_version=4
 
 _global_script_classes=[ {
-"base": "Button",
+"base": "PowerupCard",
 "class": "AddShipCard",
 "language": "GDScript",
 "path": "res://UI/PowerupMenu/AddShipCard/AddShipCard.gd"
 }, {
-"base": "Button",
+"base": "PowerupCard",
 "class": "CustomFleetCard",
 "language": "GDScript",
 "path": "res://UI/PowerupMenu/CustomFleetCard/CustomFleetCard.gd"
@@ -24,7 +24,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://UI/PowerupMenu/CustomFleetCard/Resources/CustomFleetResource.gd"
 }, {
-"base": "Button",
+"base": "PowerupCard",
 "class": "CustomShipCard",
 "language": "GDScript",
 "path": "res://UI/PowerupMenu/CustomShipCard/CustomShipCard.gd"

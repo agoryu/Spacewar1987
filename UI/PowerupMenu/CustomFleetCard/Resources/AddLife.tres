@@ -8,3 +8,4 @@ type = 2
 min_value = 5
 max_value = 10
 rarity = 3
+description = "custom_fleet_life"

@@ -23,7 +23,7 @@ export var area_zone_fleet : int
 export var icon : Resource
 export var description : String
 export var max_ship : int
-export var ship_scene : Resource
+#export var ship_scene : Resource
 
 func get_description_level(level: int) -> String:
 	match(level+1):

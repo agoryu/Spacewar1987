@@ -13,3 +13,5 @@ export(TYPES) var type
 export var min_value : int
 export var max_value : int
 export(RARITY) var rarity
+export var description : String
+export var icon : Texture

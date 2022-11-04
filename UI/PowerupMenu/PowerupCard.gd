@@ -2,4 +2,5 @@ extends Button
 
 class_name PowerupCard
 
-var value : ResourceManager
+func action():
+	pass # Replace with function body.

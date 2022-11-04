@@ -8,3 +8,4 @@ type = 3
 min_value = 10
 max_value = 20
 rarity = 2
+description = "custom_fleet_speed"

@@ -8,3 +8,4 @@ type = 1
 min_value = 2
 max_value = 5
 rarity = 3
+description = "custom_fleet_energy"

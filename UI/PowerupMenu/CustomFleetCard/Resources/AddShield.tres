@@ -8,3 +8,4 @@ type = 0
 min_value = 10
 max_value = 20
 rarity = 0
+description = "custom_fleet_shield"

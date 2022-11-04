@@ -1,2 +1,6 @@
 id,fr,en
 ship_hero_description,Vaisseau légendaire qui a combattu dans les guerres ancienne. Il est maniable et plutôt puissant après amélioration,
+custom_fleet_life,Augmente la résistance de tous les vaisseaux de la flotte,
+custom_fleet_shield,Ajout un bouclier au vaisseaux de la flotte,
+custom_fleet_speed,Augmente la vitesse de tous les vaisseaux de la flotte,
+custom_fleet_energy,Diminue la consommation d’énergie de tous les vaisseaux de la flotte,
