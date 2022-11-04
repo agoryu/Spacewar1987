@@ -1,0 +1,30 @@
+[gd_resource type="Resource" load_steps=4 format=2]
+
+[ext_resource path="res://SpaceElements/Ship/ShipResource.gd" type="Script" id=1]
+[ext_resource path="res://SpaceElements/Ship/Allies/Hero/Hero.png" type="Texture" id=2]
+[ext_resource path="res://SpaceElements/Ship/Allies/Hero/Hero.tscn" type="PackedScene" id=3]
+
+[resource]
+script = ExtResource( 1 )
+name = "Hero"
+group = "hero"
+initial_speed = 300
+life = 50
+power = 1
+container_energy = 20
+energy_consume = 5
+cooldown = 1.0
+crit_ratio = 5
+second_cooldown = 5.0
+rarity = 0
+max_life = 75
+max_speed = 350
+max_power = 4
+min_energy_consume = 1
+min_cooldown = 0.2
+min_second_cooldown = 4.0
+area_zone_fleet = 100
+icon = ExtResource( 2 )
+description = "ship_hero_description"
+max_ship = 2
+ship_scene = ExtResource( 3 )

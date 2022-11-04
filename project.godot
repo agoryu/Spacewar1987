@@ -1,0 +1,122 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=4
+
+_global_script_classes=[ {
+"base": "Button",
+"class": "AddShipCard",
+"language": "GDScript",
+"path": "res://UI/PowerupMenu/AddShipCard/AddShipCard.gd"
+}, {
+"base": "Button",
+"class": "CustomFleetCard",
+"language": "GDScript",
+"path": "res://UI/PowerupMenu/CustomFleetCard/CustomFleetCard.gd"
+}, {
+"base": "ResourceManager",
+"class": "CustomFleetResource",
+"language": "GDScript",
+"path": "res://UI/PowerupMenu/CustomFleetCard/Resources/CustomFleetResource.gd"
+}, {
+"base": "Button",
+"class": "CustomShipCard",
+"language": "GDScript",
+"path": "res://UI/PowerupMenu/CustomShipCard/CustomShipCard.gd"
+}, {
+"base": "Ship",
+"class": "Hero",
+"language": "GDScript",
+"path": "res://SpaceElements/Ship/Allies/Hero/Hero.gd"
+}, {
+"base": "Button",
+"class": "PowerupCard",
+"language": "GDScript",
+"path": "res://UI/PowerupMenu/PowerupCard.gd"
+}, {
+"base": "VBoxContainer",
+"class": "PowerupMenu",
+"language": "GDScript",
+"path": "res://UI/PowerupMenu/PowerupMenu.gd"
+}, {
+"base": "Reference",
+"class": "ResourceManager",
+"language": "GDScript",
+"path": "res://UI/PowerupMenu/ResourceManager.gd"
+}, {
+"base": "Sprite",
+"class": "Shield",
+"language": "GDScript",
+"path": "res://Effects/Shield/Shield.gd"
+}, {
+"base": "SpaceElement",
+"class": "Ship",
+"language": "GDScript",
+"path": "res://SpaceElements/Ship/Ship.gd"
+}, {
+"base": "Resource",
+"class": "ShipResource",
+"language": "GDScript",
+"path": "res://SpaceElements/Ship/ShipResource.gd"
+}, {
+"base": "KinematicBody2D",
+"class": "SpaceElement",
+"language": "GDScript",
+"path": "res://SpaceElements/SpaceElement.gd"
+} ]
+_global_script_class_icons={
+"AddShipCard": "",
+"CustomFleetCard": "",
+"CustomFleetResource": "",
+"CustomShipCard": "",
+"Hero": "",
+"PowerupCard": "",
+"PowerupMenu": "",
+"ResourceManager": "",
+"Shield": "",
+"Ship": "",
+"ShipResource": "",
+"SpaceElement": ""
+}
+
+[application]
+
+config/name="Spacewar1987"
+run/main_scene="res://Spacewar.tscn"
+config/icon="res://icon.png"
+
+[autoload]
+
+FleetManager="*res://Game/FleetManager.gd"
+
+[gui]
+
+common/drop_mouse_on_gui_input_disabled=true
+
+[layer_names]
+
+2d_physics/layer_1="player"
+2d_physics/layer_2="ally"
+2d_physics/layer_3="object"
+2d_physics/layer_4="ally_weapon"
+2d_physics/layer_5="enemy"
+2d_physics/layer_6="enemy_weapon"
+2d_physics/layer_7="asteroid"
+
+[locale]
+
+locale_filter=[ 0, [ "en", "fr" ] ]
+translations=PoolStringArray( "res://Translation/translation.en.translation", "res://Translation/translation.fr.translation" )
+
+[physics]
+
+common/enable_pause_aware_picking=true
+
+[rendering]
+
+environment/default_environment="res://default_env.tres"

@@ -1,0 +1,10 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://UI/PowerupMenu/CustomFleetCard/Resources/CustomFleetResource.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+type = 1
+min_value = 2
+max_value = 5
+rarity = 3
