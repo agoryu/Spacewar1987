@@ -16,12 +16,14 @@ func _process(delta):
 		open()
 
 func open():
+	nb_open += 1
 	if is_open:
-		nb_open += 1
+		return
 	var cards = manager.rand_card()
 	for i in range(3):
 		powerup_place[i].add_child(cards[i])
 		cards[i].connect("button_up", self, "close")
+	cards[0].grab_focus()
 	animation(false)
 	is_open = true
 	
@@ -29,7 +31,7 @@ func close():
 	animation(true)
 	for powerup in powerup_place:
 		powerup.get_child(0).queue_free()
-	nb_open -= 1
+#	nb_open -= 1
 	is_open = false
 
 func animation(is_open: bool):

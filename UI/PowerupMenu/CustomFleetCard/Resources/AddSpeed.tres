@@ -1,6 +1,7 @@
-[gd_resource type="Resource" load_steps=2 format=2]
+[gd_resource type="Resource" load_steps=3 format=2]
 
 [ext_resource path="res://UI/PowerupMenu/CustomFleetCard/Resources/CustomFleetResource.gd" type="Script" id=1]
+[ext_resource path="res://UI/PowerupMenu/CustomFleetCard/Assets/Speed.png" type="Texture" id=2]
 
 [resource]
 script = ExtResource( 1 )
@@ -9,3 +10,4 @@ min_value = 10
 max_value = 20
 rarity = 2
 description = "custom_fleet_speed"
+icon = ExtResource( 2 )

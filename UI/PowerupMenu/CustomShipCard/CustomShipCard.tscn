@@ -41,3 +41,5 @@ unique_name_in_owner = true
 margin_top = 160.0
 margin_right = 192.0
 margin_bottom = 174.0
+align = 1
+valign = 1

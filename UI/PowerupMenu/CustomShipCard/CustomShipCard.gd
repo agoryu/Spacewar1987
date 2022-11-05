@@ -10,6 +10,6 @@ var ship : Ship
 
 func _ready():
 	_ship_icon.texture = ship.ship_info.icon
-	# gérer l'icon de boost
-#	_boost_icon.
-	_description.text = tr("")
+	var lvl_info = ship.ship_info.get_description_level(ship.lvl)
+	_boost_icon.texture = lvl_info[0]
+	_description.text = tr(lvl_info[1])

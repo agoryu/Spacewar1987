@@ -1,6 +1,7 @@
-[gd_resource type="Resource" load_steps=2 format=2]
+[gd_resource type="Resource" load_steps=3 format=2]
 
 [ext_resource path="res://UI/PowerupMenu/CustomFleetCard/Resources/CustomFleetResource.gd" type="Script" id=1]
+[ext_resource path="res://UI/PowerupMenu/CustomFleetCard/Assets/EnergyConsume.png" type="Texture" id=2]
 
 [resource]
 script = ExtResource( 1 )
@@ -9,3 +10,4 @@ min_value = 2
 max_value = 5
 rarity = 3
 description = "custom_fleet_energy"
+icon = ExtResource( 2 )

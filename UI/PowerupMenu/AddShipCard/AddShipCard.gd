@@ -2,6 +2,8 @@ extends PowerupCard
 
 class_name AddShipCard
 
+var ally_dictionary_script = load("res://SpaceElements/Ship/Allies/AllyDictionary.gd").new()
+
 onready var _picture : NinePatchRect = get_node("%Picture")
 onready var _description : Label = get_node("%Description")
 onready var _ship_name : Label = get_node("%ShipName")

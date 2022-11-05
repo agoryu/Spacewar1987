@@ -1,13 +1,13 @@
 [gd_resource type="Resource" load_steps=4 format=2]
 
 [ext_resource path="res://SpaceElements/Ship/ShipResource.gd" type="Script" id=1]
-[ext_resource path="res://SpaceElements/Ship/Allies/Hero/Hero.png" type="Texture" id=2]
+[ext_resource path="res://SpaceElements/Ship/Allies/Kargo/Cargo.png" type="Texture" id=2]
 [ext_resource path="res://UI/PowerupMenu/CustomFleetCard/Assets/Speed.png" type="Texture" id=3]
 
 [resource]
 script = ExtResource( 1 )
-name = "Hero"
-group = "hero"
+name = "Kargo"
+group = "kargo"
 initial_speed = 300
 life = 50
 power = 1
@@ -16,7 +16,7 @@ energy_consume = 5
 cooldown = 1.0
 crit_ratio = 5
 second_cooldown = 5.0
-rarity = 4
+rarity = 1
 max_life = 75
 max_speed = 350
 max_power = 4

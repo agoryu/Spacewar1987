@@ -9,7 +9,7 @@ onready var _value : Label = get_node("%Value")
 var custom_resource : CustomFleetResource
 var value : int
 
-func _ready():
+func ready():
 	_icon_custom.texture = custom_resource.icon
 	_description.text = tr(custom_resource.description)
 	_value.text = String(value)

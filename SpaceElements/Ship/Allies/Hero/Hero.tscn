@@ -5,7 +5,7 @@
 [ext_resource path="res://SpaceElements/Ship/Allies/Hero/Hero.gd" type="Script" id=3]
 [ext_resource path="res://SpaceElements/Ship/Allies/Hero/Hero.tres" type="Resource" id=4]
 
-[node name="Ship" instance=ExtResource( 1 )]
+[node name="Hero" groups=["hero"] instance=ExtResource( 1 )]
 script = ExtResource( 3 )
 ship_info = ExtResource( 4 )
 

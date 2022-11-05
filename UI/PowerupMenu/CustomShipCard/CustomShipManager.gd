@@ -30,7 +30,7 @@ func create_card() -> PowerupCard:
 		elif (not dictionary_item[RARITY.RARE].empty() 
 				and ((rand >= 45 and rand < 70) or dictionary_item[RARITY.SUPER_RARE].empty())):
 			card.ship = find_ship(dictionary_item[RARITY.RARE])
-		else:
+		elif not dictionary_item[RARITY.COMMON].empty():
 			card.ship = find_ship(dictionary_item[RARITY.COMMON])
 	return card
 	

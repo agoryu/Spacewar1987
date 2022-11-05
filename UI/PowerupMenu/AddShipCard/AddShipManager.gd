@@ -1,7 +1,13 @@
 extends ResourceManager
 
 var ship_list = [
-	preload("res://SpaceElements/Ship/Allies/Hero/Hero.tres")
+	preload("res://SpaceElements/Ship/Allies/Hero/Hero.tres"),
+	preload("res://SpaceElements/Ship/Allies/Enterprise/Enterprise.tres"),
+	preload("res://SpaceElements/Ship/Allies/Kargo/Kargo.tres"),
+	preload("res://SpaceElements/Ship/Allies/RadHar/RadHar.tres"),
+	preload("res://SpaceElements/Ship/Allies/SamOid/SamOid.tres"),
+	preload("res://SpaceElements/Ship/Allies/Viper/Viper.tres"),
+	preload("res://SpaceElements/Ship/Allies/XWyng/XWyng.tres")
 ]
 
 func _init():
@@ -30,6 +36,8 @@ func create_card() -> AddShipCard:
 			card.ship_resource = rand_ship(dictionary_item[RARITY.RARE])
 		else:
 			card.ship_resource = rand_ship(dictionary_item[RARITY.COMMON])
+			
+	print(card.ship_resource)
 			
 	if card.ship_resource == null and nb_retry >= MAX_RETRY:
 		#TODO ajouter un vaisseau basique sans lvl up
