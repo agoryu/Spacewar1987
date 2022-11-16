@@ -2,8 +2,6 @@ extends PowerupCard
 
 class_name AddShipCard
 
-var ally_dictionary_script = load("res://SpaceElements/Ship/Allies/AllyDictionary.gd").new()
-
 onready var _picture : NinePatchRect = get_node("%Picture")
 onready var _description : Label = get_node("%Description")
 onready var _ship_name : Label = get_node("%ShipName")
@@ -16,4 +14,5 @@ func _ready():
 	_ship_name.text = ship_resource.name
 	
 func action():
-	pass
+	var ship = AllyDictionary.ALLY_DICTIONNARY[ship_resource.group].instance()
+	FleetManager.add_ship(ship)

@@ -15,20 +15,17 @@ func _init():
 		dictionary_item[custom.rarity].push_back(custom)
 
 func create_card() -> CustomFleetCard:
-	var card = card_constructor.instance()
+	var card = card_constructor.instance() as CustomFleetCard
 	var nb_retry = 0
-	while card.value == null and nb_retry < MAX_RETRY:
+	while card.value == 0 and nb_retry < MAX_RETRY:
 		var rand = randi() % 100
 		if not dictionary_item[RARITY.LEGENDARY].empty() and rand >= 0 and rand < 10:
 			compute_data_card(RARITY.LEGENDARY, card)
-		elif (not dictionary_item[RARITY.EXTRAORDINARY].empty() 
-				and ((rand >= 10 and rand < 25) or dictionary_item[RARITY.LEGENDARY].empty())):
+		elif not dictionary_item[RARITY.EXTRAORDINARY].empty() and rand < 25:
 			compute_data_card(RARITY.EXTRAORDINARY, card)
-		elif (not dictionary_item[RARITY.SUPER_RARE].empty() 
-				and ((rand >= 25 and rand < 45) or dictionary_item[RARITY.EXTRAORDINARY].empty())):
+		elif not dictionary_item[RARITY.SUPER_RARE].empty() and rand < 45:
 			compute_data_card(RARITY.SUPER_RARE, card)
-		elif (not dictionary_item[RARITY.RARE].empty() 
-				and ((rand >= 45 and rand < 70) or dictionary_item[RARITY.SUPER_RARE].empty())):
+		elif not dictionary_item[RARITY.RARE].empty() and rand < 70:
 			compute_data_card(RARITY.RARE, card)
 		else:
 			compute_data_card(RARITY.COMMON, card)

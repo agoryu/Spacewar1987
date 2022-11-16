@@ -10,6 +10,7 @@ export var ship_info : Resource
 onready var _animation_player : AnimationPlayer = $AnimationPlayer
 onready var _action_timer : Timer = $ActionTimer
 onready var _sprite : Sprite = $Sprite
+onready var _shield : Sprite = $Sprite/Shield
 onready var area_collision_radius : int = $Area/CollisionShape2D.shape.radius
 
 const MAX_LVL : int = 10
@@ -22,6 +23,8 @@ var max_life : int = 0
 var power : int = 0
 var area_zone_fleet : int = 0
 var crit_ratio : int = 0
+var shield : int = 0
+var energy_consume : int = 0
 
 var time_after_collision : int = 0
 
@@ -43,12 +46,14 @@ func init_data():
 	speed = initial_speed
 	_action_timer.wait_time = ship_info.cooldown
 	crit_ratio = ship_info.crit_ratio
+	energy_consume = ship_info.energy_consume
 
 func _physics_process(delta):
 	if is_player:
 		move_player()
 	else:
 		move()
+	_shield.visible = shield > 0
 
 ####### Move #################
 func get_gamepad_direction():

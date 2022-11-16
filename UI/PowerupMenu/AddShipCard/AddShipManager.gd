@@ -37,8 +37,6 @@ func create_card() -> AddShipCard:
 		else:
 			card.ship_resource = rand_ship(dictionary_item[RARITY.COMMON])
 			
-	print(card.ship_resource)
-			
 	if card.ship_resource == null and nb_retry >= MAX_RETRY:
 		#TODO ajouter un vaisseau basique sans lvl up
 		pass

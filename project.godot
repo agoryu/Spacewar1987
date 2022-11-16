@@ -30,9 +30,19 @@ _global_script_classes=[ {
 "path": "res://UI/PowerupMenu/CustomShipCard/CustomShipCard.gd"
 }, {
 "base": "Ship",
+"class": "Enterprise",
+"language": "GDScript",
+"path": "res://SpaceElements/Ship/Allies/Enterprise/Enterprise.gd"
+}, {
+"base": "Ship",
 "class": "Hero",
 "language": "GDScript",
 "path": "res://SpaceElements/Ship/Allies/Hero/Hero.gd"
+}, {
+"base": "Ship",
+"class": "Kargo",
+"language": "GDScript",
+"path": "res://SpaceElements/Ship/Allies/Kargo/Kargo.gd"
 }, {
 "base": "Button",
 "class": "PowerupCard",
@@ -44,10 +54,20 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://UI/PowerupMenu/PowerupMenu.gd"
 }, {
+"base": "Ship",
+"class": "RadHar",
+"language": "GDScript",
+"path": "res://SpaceElements/Ship/Allies/RadHar/RadHar.gd"
+}, {
 "base": "Reference",
 "class": "ResourceManager",
 "language": "GDScript",
 "path": "res://UI/PowerupMenu/ResourceManager.gd"
+}, {
+"base": "Ship",
+"class": "SamOid",
+"language": "GDScript",
+"path": "res://SpaceElements/Ship/Allies/SamOid/SamOid.gd"
 }, {
 "base": "Sprite",
 "class": "Shield",
@@ -68,20 +88,36 @@ _global_script_classes=[ {
 "class": "SpaceElement",
 "language": "GDScript",
 "path": "res://SpaceElements/SpaceElement.gd"
+}, {
+"base": "Ship",
+"class": "Viper",
+"language": "GDScript",
+"path": "res://SpaceElements/Ship/Allies/Viper/Viper.gd"
+}, {
+"base": "Ship",
+"class": "XWyng",
+"language": "GDScript",
+"path": "res://SpaceElements/Ship/Allies/XWyng/XWyng.gd"
 } ]
 _global_script_class_icons={
 "AddShipCard": "",
 "CustomFleetCard": "",
 "CustomFleetResource": "",
 "CustomShipCard": "",
+"Enterprise": "",
 "Hero": "",
+"Kargo": "",
 "PowerupCard": "",
 "PowerupMenu": "",
+"RadHar": "",
 "ResourceManager": "",
+"SamOid": "",
 "Shield": "",
 "Ship": "",
 "ShipResource": "",
-"SpaceElement": ""
+"SpaceElement": "",
+"Viper": "",
+"XWyng": ""
 }
 
 [application]
@@ -93,6 +129,7 @@ config/icon="res://icon.png"
 [autoload]
 
 FleetManager="*res://Game/FleetManager.gd"
+AllyDictionary="*res://SpaceElements/Ship/Allies/AllyDictionary.gd"
 
 [gui]
 

@@ -1,0 +1,14 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://SpaceElements/Ship/Ship.tscn" type="PackedScene" id=1]
+[ext_resource path="res://SpaceElements/Ship/Allies/SamOid/Samus.png" type="Texture" id=2]
+[ext_resource path="res://SpaceElements/Ship/Allies/SamOid/SamOid.gd" type="Script" id=3]
+[ext_resource path="res://SpaceElements/Ship/Allies/SamOid/SamOid.tres" type="Resource" id=4]
+
+[node name="SamOid" groups=["samoid"] instance=ExtResource( 1 )]
+script = ExtResource( 3 )
+ship_info = ExtResource( 4 )
+
+[node name="Sprite" parent="." index="0"]
+scale = Vector2( 0.02, 0.02 )
+texture = ExtResource( 2 )

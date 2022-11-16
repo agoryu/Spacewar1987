@@ -10,9 +10,8 @@ func rand_card() -> Array:
 	var can_custom_ship : bool = custom_ship_manager.can_add_card()
 	for index in range(3):
 		var rand = randi() % 100
-		print(rand)
 		if (can_create_ship and (
-				(rand >= 0 and rand < 20) or not can_create_ship
+				(rand >= 0 and rand < 20) or not can_custom_ship
 			)
 		):
 			cards.push_back(add_ship_manager.create_card())

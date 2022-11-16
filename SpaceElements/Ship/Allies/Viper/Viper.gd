@@ -1,6 +1,6 @@
 extends Ship
 
-class_name Hero
+class_name Viper
 
 func action():
 	pass
