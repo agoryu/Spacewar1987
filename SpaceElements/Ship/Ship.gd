@@ -18,7 +18,6 @@ const MOVE_THRESHOLD : int = 20
 
 #Stats
 var lvl : int = 0
-var life : int = 0
 var max_life : int = 0
 var power : int = 0
 var area_zone_fleet : int = 0
@@ -55,7 +54,7 @@ func _physics_process(delta):
 		move()
 	_shield.visible = shield > 0
 
-####### Move #################
+########################## Move ###############################################
 func get_gamepad_direction():
 	return Vector2(
 		Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left"),
@@ -87,7 +86,14 @@ func move():
 		time_after_collision = 10
 	if time_after_collision > 0:
 		time_after_collision -= 1
-	
+		
+func move_in_direction(direction: Vector2):
+	.move_in_direction(direction)
+	if get_slide_count() < 1 and time_after_collision == 0:
+		_sprite.rotation = _velocity.angle() + PI / 2
+		
+########################## End move ###############################################
+########################## Ship management ########################################
 func set_is_player(value : bool):
 	is_player = value
 	if is_player:
@@ -99,21 +105,37 @@ func set_is_player(value : bool):
 		set_collision_layer_bit(1, true)
 		set_collision_mask_bit(1, true)
 		
-func move_in_direction(direction: Vector2):
-	.move_in_direction(direction)
-	if get_slide_count() < 1 and time_after_collision == 0:
-		_sprite.rotation = _velocity.angle() + PI / 2
-		
 func level_up():
 	if lvl >= MAX_LVL:
 		return
 	lvl += 1
-	ship_info.apply_level_up(self, lvl)
+	update_level_up()
+	
+func add_damage(damage: int):
+	if shield > 0:
+		shield -= damage
+		if shield < 0:
+			.add_damage(abs(shield))
+			shield = 0
+	else:
+		.add_damage(damage)
+	
+func die():
+	_animation_player.play("die")
+	
+func impact():
+	_animation_player.play("impact")
 
 func become_ally():
 	# mettre le comportement lorsqu'un enemie devient un allié
 	pass
-	
-######## Action ###########
+
+########################## End ship management ######################################
+############################ Action in daughter class ###############################
 func action():
+	# Implement
+	pass
+
+func update_level_up():
+	# Implement
 	pass

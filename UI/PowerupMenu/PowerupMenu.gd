@@ -31,7 +31,7 @@ func close():
 	animation(true)
 	for powerup in powerup_place:
 		powerup.get_child(0).queue_free()
-#	nb_open -= 1
+	nb_open -= 1
 	is_open = false
 
 func animation(is_open: bool):
