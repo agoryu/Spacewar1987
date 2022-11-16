@@ -25,6 +25,7 @@ resource_name = "impact"
 
 [sub_resource type="Animation" id=10]
 resource_name = "invincibility"
+loop = true
 
 [sub_resource type="Animation" id=6]
 resource_name = "spawn"
@@ -85,4 +86,9 @@ stream = ExtResource( 4 )
 [node name="ActionTimer" type="Timer" parent="."]
 autostart = true
 
+[node name="InvincibilityTimer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
 [connection signal="timeout" from="ActionTimer" to="." method="action"]
+[connection signal="timeout" from="InvincibilityTimer" to="." method="_on_InvincibilityTimer_timeout"]

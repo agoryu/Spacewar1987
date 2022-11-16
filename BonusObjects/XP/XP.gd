@@ -14,6 +14,5 @@ func _ready():
 	scale += Vector2.ONE * (value / 10)
 
 func apply_effect(body: Ship):
-	print("apply effect")
 	FleetManager.add_xp(value)
 	.apply_effect(body)

@@ -26,6 +26,7 @@ var shield : int = 0
 var energy_consume : int = 0
 
 var time_after_collision : int = 0
+var is_invincible : bool = false setget set_is_invincible
 
 func _ready():
 	action()
@@ -107,6 +108,14 @@ func set_is_player(value : bool):
 		set_collision_layer_bit(1, true)
 		set_collision_mask_bit(1, true)
 		
+func set_is_invincible(value: bool):
+	is_invincible = value
+	if value:
+		_animation_player.play("invincibility")
+		$InvincibilityTimer.start()
+	else:
+		_animation_player.stop()
+		
 func level_up():
 	if lvl >= MAX_LVL:
 		return
@@ -114,6 +123,8 @@ func level_up():
 	update_level_up()
 	
 func add_damage(damage: int):
+	if is_invincible:
+		return
 	if shield > 0:
 		shield -= damage
 		if shield < 0:
@@ -132,6 +143,9 @@ func become_ally():
 	# mettre le comportement lorsqu'un enemie devient un allié
 	pass
 
+func _on_InvincibilityTimer_timeout():
+	set_is_invincible(false)
+	
 ########################## End ship management ######################################
 ############################ Action in daughter class ###############################
 func action():

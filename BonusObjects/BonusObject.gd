@@ -16,7 +16,7 @@ func _physics_process(delta: float):
 		attractors = get_overlapping_areas()
 	else:
 		attractors = [FleetManager.player]
-		max_speed *= 2
+		max_speed *= 1.1
 		
 	if attractors:
 		var desired_velocity: Vector2 = (
