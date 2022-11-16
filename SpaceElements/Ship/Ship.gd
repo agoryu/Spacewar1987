@@ -99,9 +99,11 @@ func set_is_player(value : bool):
 	if is_player:
 		FleetManager.player = self
 		speed = initial_speed
+		set_collision_layer_bit(0, true)
 		set_collision_layer_bit(1, false)
 		set_collision_mask_bit(1, false)
 	else:
+		set_collision_layer_bit(0, false)
 		set_collision_layer_bit(1, true)
 		set_collision_mask_bit(1, true)
 		

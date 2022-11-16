@@ -1,8 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://SpaceElements/Ship/Allies/Hero/Hero.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Spacewar.gd" type="Script" id=2]
 [ext_resource path="res://UI/PowerupMenu/PowerupMenu.tscn" type="PackedScene" id=3]
+[ext_resource path="res://BonusObjects/XP/XP.tscn" type="PackedScene" id=4]
+[ext_resource path="res://UI/XPBar/XPBar.tscn" type="PackedScene" id=5]
 
 [sub_resource type="NavigationPolygon" id=1]
 vertices = PoolVector2Array( 8, 8, 1016, 16, 1008, 560, 8, 576 )
@@ -13,11 +15,20 @@ outlines = [ PoolVector2Array( 8, 8, 1016, 16, 1008, 560, 8, 576 ) ]
 script = ExtResource( 2 )
 
 [node name="ColorRect" type="ColorRect" parent="."]
+visible = false
 margin_right = 323.0
 margin_bottom = 263.0
 color = Color( 0.0196078, 0.14902, 0.4, 1 )
 
+[node name="Ship" parent="." instance=ExtResource( 1 )]
+position = Vector2( 200, 356 )
+collision_layer = 0
+collision_mask = 0
+collision/safe_margin = 0.08
+is_player = true
+
 [node name="Navigation2D" type="Navigation2D" parent="."]
+visible = false
 
 [node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="Navigation2D"]
 position = Vector2( 0, 8 )
@@ -27,14 +38,8 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Ship" parent="Navigation2D" instance=ExtResource( 1 )]
-position = Vector2( 200, 356 )
-collision_layer = 0
-collision_mask = 0
-collision/safe_margin = 0.08
-is_player = true
-
 [node name="PowerupMenuPanel" parent="." instance=ExtResource( 3 )]
+visible = false
 margin_left = 376.0
 margin_top = 24.0
 margin_right = 1016.0
@@ -42,3 +47,33 @@ margin_bottom = 344.0
 __meta__ = {
 "_edit_group_": true
 }
+
+[node name="XPBar" parent="." instance=ExtResource( 5 )]
+margin_left = 672.0
+margin_top = 32.0
+margin_right = 831.0
+margin_bottom = 46.0
+
+[node name="XP" parent="." instance=ExtResource( 4 )]
+position = Vector2( 192, 128 )
+
+[node name="XP2" parent="." instance=ExtResource( 4 )]
+position = Vector2( 352, 104 )
+
+[node name="XP3" parent="." instance=ExtResource( 4 )]
+position = Vector2( 448, 184 )
+
+[node name="XP4" parent="." instance=ExtResource( 4 )]
+position = Vector2( 544, 296 )
+
+[node name="XP5" parent="." instance=ExtResource( 4 )]
+position = Vector2( 600, 176 )
+
+[node name="XP6" parent="." instance=ExtResource( 4 )]
+position = Vector2( 704, 384 )
+
+[node name="XP7" parent="." instance=ExtResource( 4 )]
+position = Vector2( 536, 488 )
+
+[node name="XP8" parent="." instance=ExtResource( 4 )]
+position = Vector2( 752, 512 )
