@@ -2,5 +2,7 @@ extends Button
 
 class_name PowerupCard
 
+signal close
+
 func action():
-	pass # Replace with function body.
+	emit_signal("close")

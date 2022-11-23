@@ -3,6 +3,7 @@ extends Node
 signal add_ship
 signal add_xp
 signal lvl_up
+signal game_over
 
 var player : Ship
 var parent_ally : Node2D
@@ -24,3 +25,11 @@ func add_xp(value: int):
 func lvl_up():
 	warning_level += 1
 	emit_signal("lvl_up")
+
+func game_over():
+	emit_signal("game_over")
+	
+func set_player(ship: Ship):
+	player.set_is_player(false)
+	player = ship
+	player.set_is_player(true)

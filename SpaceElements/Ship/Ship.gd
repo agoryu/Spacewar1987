@@ -132,6 +132,8 @@ func add_damage(damage: int):
 			shield = 0
 	else:
 		.add_damage(damage)
+	if life <= 0 and is_player:
+		FleetManager.game_over()
 	
 func die():
 	_animation_player.play("die")

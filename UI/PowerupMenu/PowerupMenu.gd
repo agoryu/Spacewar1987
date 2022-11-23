@@ -2,6 +2,8 @@ extends Panel
 
 class_name PowerupMenu
 
+signal close
+
 onready var manager = load("res://UI/PowerupMenu/PowerupManager.gd").new()
 onready var powerup_place = $PowerupMenu/PowerupList.get_children()
 
@@ -30,6 +32,7 @@ func close():
 		powerup.get_child(0).queue_free()
 	nb_open -= 1
 	is_open = false
+	emit_signal("close")
 
 func animation(is_open: bool):
-	pass
+	visible = not is_open

@@ -4,11 +4,23 @@ onready var _powerup_menu : PowerupMenu = get_node("%PowerupMenuPanel")
 onready var _xp_bar : XPBar = get_node("%XPBar")
 onready var _energy_indicator : EnergyIndicator = get_node("%EnergyIndicator")
 onready var _game_timer : GameTimer = get_node("%GameTimer")
+onready var _game_over_menu : GameOverMenu = get_node("%GameOverMenu")
+onready var _menu : Menu = get_node("%Menu")
 onready var _tree : SceneTree = get_tree()
 
 func _ready():
 	FleetManager.connect("lvl_up", self, "open_powerup_menu")
 	FleetManager.connect("add_xp", self, "add_xp")
+	FleetManager.connect("game_over", self, "game_over")
+	FleetManager.connect("add_ship", self, "add_ship")
+	
+func _unhandled_input(event):
+	if event.is_action_released("ui_cancel"):
+		if _menu.visible:
+			_menu.close()
+			stop_pause()
+		else:
+			_menu.open()
 
 func open_powerup_menu():
 	_tree.paused = true
@@ -19,3 +31,13 @@ func add_xp(value: int):
 
 func activate_alarm():
 	pass # Replace with function body.
+	
+func game_over():
+	_tree.paused = true
+	_game_over_menu.open()
+	
+func stop_pause():
+	_tree.paused = false
+	
+func add_ship(ship : Ship):
+	_energy_indicator.add_ship(ship)

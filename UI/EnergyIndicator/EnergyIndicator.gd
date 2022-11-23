@@ -14,8 +14,10 @@ var energy_consume = 0
 func recalculate_energy_consume():
 	pass
 
-func set_max_energy(value: int):
-	pass
+func add_ship(ship: Ship):
+	max_value += ship.ship_info.container_energy
+	value += ship.ship_info.container_energy
+	energy_consume += ship.ship_info.energy_consume
 	
 func set_energy(value: int):
 	pass

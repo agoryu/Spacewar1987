@@ -13,3 +13,6 @@ func _ready():
 	var lvl_info = ship.ship_info.get_description_level(ship.lvl)
 	_boost_icon.texture = lvl_info[0]
 	_description.text = tr(lvl_info[1])
+	
+func action():
+	pass
