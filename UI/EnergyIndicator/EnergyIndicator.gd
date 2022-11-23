@@ -8,19 +8,20 @@ export var activate_alarm_limit : int = 10
 
 var energy_consume = 0
 
-# All function take positive value to add energy and
-# negative value to reduce energy
-
 func recalculate_energy_consume():
-	pass
+	energy_consume = 0
+	for ship in get_tree().get_nodes_in_group("ally"):
+		energy_consume += ship.energy_consume
 
 func add_ship(ship: Ship):
-	max_value += ship.ship_info.container_energy
-	value += ship.ship_info.container_energy
-	energy_consume += ship.ship_info.energy_consume
+	max_value += ship.energy_container
+	value += ship.energy_container
+	energy_consume += ship.energy_consume
 	
-func set_energy(value: int):
-	pass
+func loose_ship(ship: Ship):
+	max_value -= ship.energy_container
+	value -= ship.energy_container
+	energy_consume -= ship.energy_consume
 
 func consume_energy():
 	value -= energy_consume

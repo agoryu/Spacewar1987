@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://UI/PowerupMenu/PowerupMenu.tscn" type="PackedScene" id=1]
 [ext_resource path="res://UI/XPBar/XPBar.tscn" type="PackedScene" id=2]
@@ -7,6 +7,8 @@
 [ext_resource path="res://UI/Timer/GameTimer.tscn" type="PackedScene" id=5]
 [ext_resource path="res://UI/GameOverMenu/GameOverMenu.tscn" type="PackedScene" id=6]
 [ext_resource path="res://UI/Menu/Menu.tscn" type="PackedScene" id=7]
+[ext_resource path="res://UI/SwitchPlayerComponent/SwitchPlayerComponent.tscn" type="PackedScene" id=8]
+[ext_resource path="res://UI/FleetBoard/FleetBoard.tscn" type="PackedScene" id=9]
 
 [node name="UI" type="Control"]
 pause_mode = 2
@@ -74,6 +76,18 @@ margin_left = -160.0
 margin_top = 16.0
 margin_right = 0.0
 margin_bottom = 89.0
+
+[node name="SwitchPlayerComponent" parent="." instance=ExtResource( 8 )]
+unique_name_in_owner = true
+margin_left = 200.0
+margin_top = 32.0
+margin_right = -192.0
+margin_bottom = 52.0
+
+[node name="FleetBoard" parent="." instance=ExtResource( 9 )]
+unique_name_in_owner = true
+margin_top = 64.0
+margin_right = 192.0
 
 [connection signal="close" from="PowerupMenuPanel" to="." method="stop_pause"]
 [connection signal="activate_alarm" from="EnergyIndicator" to="." method="activate_alarm"]

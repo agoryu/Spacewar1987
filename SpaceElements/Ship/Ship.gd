@@ -24,6 +24,7 @@ var area_zone_fleet : int = 0
 var crit_ratio : int = 0
 var shield : int = 0
 var energy_consume : int = 0
+var energy_container : int = 0
 
 var time_after_collision : int = 0
 var is_invincible : bool = false setget set_is_invincible
@@ -47,6 +48,7 @@ func init_data():
 	_action_timer.wait_time = ship_info.cooldown
 	crit_ratio = ship_info.crit_ratio
 	energy_consume = ship_info.energy_consume
+	energy_container = ship_info.container_energy
 
 func _physics_process(delta):
 	if is_player:
@@ -132,8 +134,10 @@ func add_damage(damage: int):
 			shield = 0
 	else:
 		.add_damage(damage)
-	if life <= 0 and is_player:
-		FleetManager.game_over()
+	if life <= 0:
+		FleetManager.loose_ship(self)
+		if is_player:
+			FleetManager.game_over()
 	
 func die():
 	_animation_player.play("die")
