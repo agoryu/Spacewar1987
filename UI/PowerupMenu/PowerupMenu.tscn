@@ -12,11 +12,11 @@ Panel/styles/panel = SubResource( 1 )
 margin_right = 640.0
 margin_bottom = 320.0
 theme = SubResource( 2 )
+script = ExtResource( 1 )
 
 [node name="PowerupMenu" type="VBoxContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-script = ExtResource( 1 )
 
 [node name="Title" type="Label" parent="PowerupMenu"]
 margin_right = 640.0

@@ -8,6 +8,7 @@ var player : Ship
 var parent_ally : Node2D
 
 var warning_level = 0
+var fleet : Array = []
 
 func add_ship(ship: Ship):
 	parent_ally.add_child(ship)

@@ -1,9 +1,8 @@
 extends ProgressBar
 
-var _xp_step = 0
+class_name XPBar
 
-func _ready():
-	FleetManager.connect("add_xp", self, "add_xp")
+var _xp_step = 0
 
 func add_xp(xp: int):
 	value += xp

@@ -34,10 +34,20 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://UI/PowerupMenu/CustomShipCard/CustomShipCard.gd"
 }, {
+"base": "TextureProgress",
+"class": "EnergyIndicator",
+"language": "GDScript",
+"path": "res://UI/EnergyIndicator/EnergyIndicator.gd"
+}, {
 "base": "Ship",
 "class": "Enterprise",
 "language": "GDScript",
 "path": "res://SpaceElements/Ship/Allies/Enterprise/Enterprise.gd"
+}, {
+"base": "Label",
+"class": "GameTimer",
+"language": "GDScript",
+"path": "res://UI/Timer/GameTimer.gd"
 }, {
 "base": "Ship",
 "class": "Hero",
@@ -54,7 +64,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://UI/PowerupMenu/PowerupCard.gd"
 }, {
-"base": "VBoxContainer",
+"base": "Panel",
 "class": "PowerupMenu",
 "language": "GDScript",
 "path": "res://UI/PowerupMenu/PowerupMenu.gd"
@@ -99,6 +109,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://SpaceElements/Ship/Allies/Viper/Viper.gd"
 }, {
+"base": "ProgressBar",
+"class": "XPBar",
+"language": "GDScript",
+"path": "res://UI/XPBar/XPBar.gd"
+}, {
 "base": "Ship",
 "class": "XWyng",
 "language": "GDScript",
@@ -110,7 +125,9 @@ _global_script_class_icons={
 "CustomFleetCard": "",
 "CustomFleetResource": "",
 "CustomShipCard": "",
+"EnergyIndicator": "",
 "Enterprise": "",
+"GameTimer": "",
 "Hero": "",
 "Kargo": "",
 "PowerupCard": "",
@@ -123,6 +140,7 @@ _global_script_class_icons={
 "ShipResource": "",
 "SpaceElement": "",
 "Viper": "",
+"XPBar": "",
 "XWyng": ""
 }
 
