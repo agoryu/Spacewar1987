@@ -49,4 +49,5 @@ func add_ship(ship: Ship):
 	
 func loose_ship(ship: Ship):
 	_energy_indicator.loose_ship(ship)
+	_fleet_board.loose_ship(ship)
 	ship.queue_free()

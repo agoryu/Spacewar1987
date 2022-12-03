@@ -1,44 +1,51 @@
-[gd_scene format=2]
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://UI/FleetBoard/FleetShipCard.gd" type="Script" id=1]
 
 [node name="FleetShipCard" type="Panel"]
-margin_right = 320.0
-margin_bottom = 192.0
+margin_right = 192.0
+margin_bottom = 128.0
+script = ExtResource( 1 )
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
 
 [node name="Icon" type="NinePatchRect" parent="HBoxContainer"]
-margin_right = 105.0
-margin_bottom = 192.0
+unique_name_in_owner = true
+margin_right = 62.0
+margin_bottom = 128.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Indicators" type="VBoxContainer" parent="HBoxContainer"]
-margin_left = 109.0
-margin_right = 320.0
-margin_bottom = 192.0
+margin_left = 66.0
+margin_right = 192.0
+margin_bottom = 128.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 2.0
 
 [node name="Life" type="ProgressBar" parent="HBoxContainer/Indicators"]
-margin_top = 23.0
-margin_right = 211.0
-margin_bottom = 37.0
+unique_name_in_owner = true
+margin_top = 13.0
+margin_right = 126.0
+margin_bottom = 27.0
 size_flags_horizontal = 3
 size_flags_vertical = 6
 
 [node name="Shield" type="ProgressBar" parent="HBoxContainer/Indicators"]
-margin_top = 88.0
-margin_right = 211.0
-margin_bottom = 102.0
+unique_name_in_owner = true
+margin_top = 57.0
+margin_right = 126.0
+margin_bottom = 71.0
 size_flags_horizontal = 3
 size_flags_vertical = 6
 
-[node name="TextureProgress" type="TextureProgress" parent="HBoxContainer/Indicators"]
-margin_top = 160.0
-margin_right = 211.0
-margin_bottom = 161.0
+[node name="Level" type="TextureProgress" parent="HBoxContainer/Indicators"]
+unique_name_in_owner = true
+margin_top = 107.0
+margin_right = 126.0
+margin_bottom = 108.0
 size_flags_horizontal = 3
 size_flags_vertical = 6
