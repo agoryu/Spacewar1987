@@ -14,5 +14,6 @@ func _ready():
 	_ship_name.text = ship_resource.name
 	
 func action():
-	var ship = AllyDictionary.ALLY_DICTIONNARY[ship_resource.group].instance()
-	FleetManager.add_ship(ship)
+	FleetManager.add_ship(
+		AllyDictionary.ALLY_DICTIONNARY[ship_resource.group].instance()
+	)

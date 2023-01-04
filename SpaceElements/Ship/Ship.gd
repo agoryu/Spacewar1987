@@ -30,12 +30,12 @@ var time_after_collision : int = 0
 var is_invincible : bool = false setget set_is_invincible
 
 func _ready():
-	action()
 	init_data()
 	if not is_player:
 		_animation_player.play("spawn")
 	else:
 		set_is_player(true)
+	action()
 		
 func init_data():
 	ship_info = ship_info as ShipResource
@@ -138,6 +138,8 @@ func add_damage(damage: int):
 		FleetManager.loose_ship(self)
 		if is_player:
 			FleetManager.game_over()
+	else:
+		FleetManager.get_damage()
 	
 func die():
 	_animation_player.play("die")

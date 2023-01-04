@@ -3,4 +3,5 @@ extends Ship
 class_name Kargo
 
 func action():
-	pass
+	add_damage(25)
+	print(life)

@@ -7,4 +7,4 @@ export var is_right : bool = false
 var ship : Ship
 
 func set_ship(index):
-	pass
+	ship = FleetManager.fleet[index]

@@ -5,6 +5,7 @@ signal add_xp
 signal lvl_up
 signal game_over
 signal loose_ship
+signal get_damage
 
 var player : Ship
 var parent_ally : Node2D
@@ -24,7 +25,7 @@ func add_xp(value: int):
 	emit_signal("add_xp", value)
 	
 func loose_ship(ship: Ship):
-	emit_signal("loose_ship")
+	emit_signal("loose_ship", ship)
 
 func lvl_up():
 	warning_level += 1
@@ -37,3 +38,6 @@ func set_player(ship: Ship):
 	player.set_is_player(false)
 	player = ship
 	player.set_is_player(true)
+	
+func get_damage():
+	emit_signal("get_damage")

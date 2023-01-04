@@ -1,11 +1,13 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://SpaceElements/Ship/Allies/Hero/Hero.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Spacewar.gd" type="Script" id=2]
 [ext_resource path="res://UI/UI.tscn" type="PackedScene" id=3]
 [ext_resource path="res://BonusObjects/XP/XP.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Camera/Camera.tscn" type="PackedScene" id=5]
 [ext_resource path="res://BonusObjects/Magnet/Magnet.tscn" type="PackedScene" id=6]
 [ext_resource path="res://BonusObjects/Invincibility/Invincibility.tscn" type="PackedScene" id=7]
+[ext_resource path="res://SpaceElements/Ship/Allies/Kargo/Kargo.tscn" type="PackedScene" id=8]
 
 [sub_resource type="NavigationPolygon" id=1]
 vertices = PoolVector2Array( 8, 8, 1016, 16, 1008, 560, 8, 576 )
@@ -31,12 +33,17 @@ position = Vector2( 88, 88 )
 [node name="Invincibility" parent="Magnet" instance=ExtResource( 7 )]
 position = Vector2( 200, 168 )
 
+[node name="Camera" parent="." instance=ExtResource( 5 )]
+
 [node name="Ship" parent="." instance=ExtResource( 1 )]
 position = Vector2( 200, 356 )
 collision_layer = 0
 collision_mask = 0
 collision/safe_margin = 0.08
 is_player = true
+
+[node name="Kargo" parent="." instance=ExtResource( 8 )]
+position = Vector2( 280, 424 )
 
 [node name="Navigation2D" type="Navigation2D" parent="."]
 visible = false
