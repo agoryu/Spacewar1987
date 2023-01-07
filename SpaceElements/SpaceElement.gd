@@ -3,10 +3,10 @@ extends KinematicBody2D
 class_name SpaceElement
 
 export var drag := 5.0
+export var speed = 300.0
 
 var _velocity = Vector2.ZERO
 var initial_speed = 300.0
-var speed = 300.0
 
 var life : int = 0
 

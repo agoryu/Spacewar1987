@@ -11,6 +11,7 @@ onready var _animation_player : AnimationPlayer = $AnimationPlayer
 onready var _action_timer : Timer = $ActionTimer
 onready var _sprite : Sprite = $Sprite
 onready var _shield : Sprite = $Sprite/Shield
+onready var _weapons : Node = $Weapons
 onready var area_collision_radius : int = $Area/CollisionShape2D.shape.radius
 
 const MAX_LVL : int = 10
@@ -35,7 +36,6 @@ func _ready():
 		_animation_player.play("spawn")
 	else:
 		set_is_player(true)
-	action()
 		
 func init_data():
 	ship_info = ship_info as ShipResource
@@ -94,6 +94,8 @@ func move_in_direction(direction: Vector2):
 	.move_in_direction(direction)
 	if get_slide_count() < 1 and time_after_collision == 0:
 		_sprite.rotation = _velocity.angle() + PI / 2
+		if _weapons:
+			_weapons.rotation = _sprite.rotation
 		
 ########################## End move ###############################################
 ########################## Ship management ########################################
