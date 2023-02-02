@@ -2,6 +2,10 @@ extends SpaceElement
 
 class_name Ship
 
+signal set_life
+signal set_shield
+signal set_level
+
 export var is_player : bool
 export var is_enemie : bool
 export var is_stop : bool = false
@@ -18,12 +22,12 @@ const MAX_LVL : int = 10
 const MOVE_THRESHOLD : int = 20
 
 #Stats
-var lvl : int = 0
+var lvl : int = 0 setget set_lvl
 var max_life : int = 0
 var power : int = 0
 var area_zone_fleet : int = 0
 var crit_ratio : int = 0
-var shield : int = 0
+var shield : int = 0 setget set_shield
 var energy_consume : int = 0
 var energy_container : int = 0
 
@@ -49,6 +53,18 @@ func init_data():
 	crit_ratio = ship_info.crit_ratio
 	energy_consume = ship_info.energy_consume
 	energy_container = ship_info.container_energy
+	
+func set_life(value : int):
+	.set_life(value)
+	emit_signal("set_life", life)
+	
+func set_lvl(value : int):
+	lvl = value
+	emit_signal("set_level", lvl, max_life)
+	
+func set_shield(value : int):
+	shield = value
+	emit_signal("set_shield", shield)
 
 func _physics_process(delta):
 	if is_player:
@@ -123,17 +139,17 @@ func set_is_invincible(value: bool):
 func level_up():
 	if lvl >= MAX_LVL:
 		return
-	lvl += 1
+	self.lvl += 1
 	update_level_up()
 	
 func add_damage(damage: int):
 	if is_invincible:
 		return
 	if shield > 0:
-		shield -= damage
+		self.shield -= damage
 		if shield < 0:
 			.add_damage(abs(shield))
-			shield = 0
+			self.shield = 0
 	else:
 		.add_damage(damage)
 	if life <= 0:

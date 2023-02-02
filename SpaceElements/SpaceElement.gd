@@ -8,10 +8,10 @@ export var speed = 300.0
 var _velocity = Vector2.ZERO
 var initial_speed = 300.0
 
-var life : int = 0
+var life : int = 0 setget set_life
 
 func add_damage(damage: int):
-	life -= damage
+	self.life -= damage
 	if life <= 0:
 		die()
 	else:
@@ -30,3 +30,6 @@ func die():
 func impact():
 	# Implement
 	pass
+
+func set_life(value : int):
+	life = value
