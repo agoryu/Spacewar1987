@@ -17,7 +17,7 @@ func _ready():
 	_sprite.texture = _sprite_tab[randi() % 3]
 	_animation_player.play("RESET")
 
-func _physics_process(delta):
+func action(delta):
 	var direction = Vector2(sin(rotation), -cos(rotation))
 	_sprite.rotate(speed_rotation)
 	move_and_collide(direction.normalized() * speed * delta)
@@ -25,22 +25,17 @@ func _physics_process(delta):
 func _on_VisibilityNotifier2D_screen_exited():
 	$Timer.start()
 
-func _on_Asteroid_body_entered(body):
-	if not body is StaticBody2D:
-		body.impact_damage(damage_caused)
-		.end_action()
-
-func impact_damage(damage: int):
+func add_damage(damage: int):
 	_life -= damage
 	_animation_player.play("impact")
 	if damage_caused != 1 and _life <= 0 :
 		divide_asteroid()
 	if _life <= 0:
-		.end_action()
+		end_action()
 
 func _on_Timer_timeout():
 	if not $VisibilityNotifier2D.is_on_screen():
-		queue_free()
+		end_action()
 
 func divide_asteroid():
 	for i in range(damage_caused):

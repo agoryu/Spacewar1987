@@ -25,8 +25,7 @@ func move_in_direction(direction: Vector2):
 	_velocity = move_and_slide(_velocity)
 	
 func die():
-	# Implement
-	pass
+	queue_free()
 	
 func impact():
 	# Implement

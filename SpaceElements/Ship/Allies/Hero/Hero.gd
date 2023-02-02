@@ -14,4 +14,5 @@ func action():
 	add_child(laser_shoot)
 	laser_shoot.set_as_toplevel(true)
 	laser_shoot.damage_caused = power
+	laser_shoot.is_ally_weapon = true
 	weapon_uses = (weapon_uses + 1) % 2
