@@ -14,7 +14,7 @@ export var ship_info : Resource
 onready var _animation_player : AnimationPlayer = $AnimationPlayer
 onready var _action_timer : Timer = $ActionTimer
 onready var _sprite : Sprite = $Sprite
-onready var _shield : Sprite = $Sprite/Shield
+onready var _shield : Sprite = $Shield
 onready var _weapons : Node = $Weapons
 onready var area_collision_radius : int = $Area/CollisionShape2D.shape.radius
 
@@ -56,7 +56,7 @@ func init_data():
 	
 func set_life(value : int):
 	.set_life(value)
-	emit_signal("set_life", life)
+	emit_signal("set_life", life, max_life)
 	
 func set_lvl(value : int):
 	lvl = value
@@ -64,6 +64,7 @@ func set_lvl(value : int):
 	
 func set_shield(value : int):
 	shield = value
+	_shield.visible = shield > 0
 	emit_signal("set_shield", shield)
 
 func _physics_process(delta):

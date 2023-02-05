@@ -7,7 +7,7 @@ const ALLY_DICTIONNARY : Dictionary = {
 		preload("res://SpaceElements/Ship/Allies/Enterprise/Enterprise.tscn"),
 	"kargo": 
 		preload("res://SpaceElements/Ship/Allies/Kargo/Kargo.tscn"),
-	"radhard": 
+	"radhar": 
 		preload("res://SpaceElements/Ship/Allies/RadHar/RadHar.tscn"),
 	"samoid": 
 		preload("res://SpaceElements/Ship/Allies/SamOid/SamOid.tscn"),

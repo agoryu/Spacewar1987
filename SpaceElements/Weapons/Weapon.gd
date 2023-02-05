@@ -2,6 +2,8 @@ extends SpaceElement
 
 class_name Weapon
 
+onready var _xp_constructor = preload("res://BonusObjects/XP/XP.tscn")
+onready var _root = get_tree().root
 onready var _timer : Timer = $Timer
 onready var _collision_area : Area2D = $Area2D
 
@@ -23,6 +25,11 @@ func action(delta : float):
 	pass
 
 func end_action():
+	if not is_ally_weapon:
+		var xp = _xp_constructor.instance()
+		xp.global_position = global_position
+		xp.set_as_toplevel(true)
+		_root.add_child(xp)
 	die()
 	
 func touch(body : SpaceElement):

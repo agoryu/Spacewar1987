@@ -24,6 +24,7 @@ func loose_ship(ship: Ship):
 	energy_consume -= ship.energy_consume
 
 func consume_energy():
+	print(String(value) + " / " + String(max_value))
 	value -= energy_consume
 	if max_value * activate_alarm_limit / 100 >= value:
 		emit_signal("activate_alarm")

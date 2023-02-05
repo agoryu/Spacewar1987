@@ -14,23 +14,21 @@ func set_ship(value : Ship):
 	icon.texture = ship.ship_info.icon
 	life.max_value = ship.life
 	life.value = ship.life
-	shield.max_value = ship.shield
+	shield.max_value = ship.shield + 1
 	shield.value = ship.shield
 	level.max_value = ship.MAX_LVL
 	level.value = ship.lvl
 	ship.connect("set_level", self, "set_level")
 	ship.connect("set_life", self, "set_life")
-	ship.connect("set_shield", self, "self_shield")
-	shield.visible = shield.value > 0
+	ship.connect("set_shield", self, "set_shield")
 	
 func set_level(value : int):
 	level.value = value
 	
 func set_life(value : int, max_life : int):
-	life.value = value
 	life.max_value = max_life
+	life.value = value
 	
 func set_shield(value : int):
+	shield.max_value = max(value, shield.max_value)
 	shield.value = value
-	shield.visible = shield.value > 0
-	shield.max_value = max(shield.value, shield.max_value)

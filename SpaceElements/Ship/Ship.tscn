@@ -2,8 +2,8 @@
 
 [ext_resource path="res://SpaceElements/Ship/Ship.gd" type="Script" id=1]
 [ext_resource path="res://SpaceElements/Ship/Assets/impact.wav" type="AudioStream" id=2]
-[ext_resource path="res://Effects/Shield/Shield.gd" type="Script" id=3]
 [ext_resource path="res://SpaceElements/Ship/Assets/spawn_ship.wav" type="AudioStream" id=4]
+[ext_resource path="res://Effects/Shield/Shield.tscn" type="PackedScene" id=5]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 40.0
@@ -44,8 +44,8 @@ script = ExtResource( 1 )
 
 [node name="Position2D" type="Position2D" parent="Sprite/Fires"]
 
-[node name="Shield" type="Sprite" parent="Sprite"]
-script = ExtResource( 3 )
+[node name="Shield" parent="." instance=ExtResource( 5 )]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )

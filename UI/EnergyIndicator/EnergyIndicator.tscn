@@ -7,7 +7,7 @@
 margin_right = 4960.0
 margin_bottom = 5120.0
 rect_scale = Vector2( 0.02, 0.02 )
-value = 30.0
+value = 100.0
 texture_under = ExtResource( 1 )
 texture_progress = ExtResource( 1 )
 fill_mode = 5
@@ -17,5 +17,6 @@ tint_progress = Color( 0.0588235, 0.717647, 0.0392157, 1 )
 script = ExtResource( 2 )
 
 [node name="Timer" type="Timer" parent="."]
+autostart = true
 
 [connection signal="timeout" from="Timer" to="." method="consume_energy"]
