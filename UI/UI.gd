@@ -9,6 +9,7 @@ onready var _menu : Menu = get_node("%Menu")
 onready var _switch_player : SwitchPlayerComponent = get_node("%SwitchPlayerComponent")
 onready var _fleet_board : FleetBoard = get_node("%FleetBoard")
 onready var _tree : SceneTree = get_tree()
+onready var _layout : ColorRect = $Layout
 
 func _ready():
 	FleetManager.connect("lvl_up", self, "open_powerup_menu")
@@ -21,7 +22,7 @@ func _unhandled_input(event):
 	if event.is_action_released("ui_cancel"):
 		if _menu.visible:
 			_menu.close()
-			stop_pause()
+			switch_pause()
 		else:
 			_menu.open()
 
@@ -36,11 +37,12 @@ func activate_alarm():
 	pass # Replace with function body.
 	
 func game_over():
-	_tree.paused = true
-	_game_over_menu.open()
+	switch_pause()
+	$Layout/GameOverMenu.visible = true
 	
-func stop_pause():
-	_tree.paused = false
+func switch_pause():
+	_tree.paused = not _tree.paused
+	_layout.visible = _tree.paused
 	
 func add_ship(ship: Ship):
 	_energy_indicator.add_ship(ship)

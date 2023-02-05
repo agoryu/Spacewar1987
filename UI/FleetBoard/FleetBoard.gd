@@ -22,7 +22,7 @@ func add_ship(ship: Ship):
 	card.ship = ship
 	
 func loose_ship(ship: Ship):
-	for ship_card in _ship_list:
+	for ship_card in _ship_list.get_children():
 		if ship_card.ship == ship:
 			remove_child(ship_card)
 			break
