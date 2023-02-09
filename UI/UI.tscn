@@ -95,6 +95,6 @@ margin_top = -20.0
 margin_right = 20.0
 margin_bottom = 20.0
 
-[connection signal="close" from="PowerupMenuPanel" to="." method="stop_pause"]
+[connection signal="close" from="PowerupMenuPanel" to="." method="switch_pause"]
 [connection signal="activate_alarm" from="EnergyIndicator" to="." method="activate_alarm"]
 [connection signal="switch_pause" from="Layout/GameOverMenu" to="." method="switch_pause"]

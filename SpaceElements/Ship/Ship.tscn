@@ -84,7 +84,6 @@ stream = ExtResource( 2 )
 stream = ExtResource( 4 )
 
 [node name="ActionTimer" type="Timer" parent="."]
-autostart = true
 
 [node name="InvincibilityTimer" type="Timer" parent="."]
 wait_time = 5.0

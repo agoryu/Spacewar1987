@@ -6,6 +6,8 @@ onready var _xp_constructor = preload("res://BonusObjects/XP/XP.tscn")
 onready var _root = get_tree().root
 onready var _timer : Timer = $Timer
 onready var _collision_area : Area2D = $Area2D
+onready var _start_audio_player : AudioStreamPlayer2D = $StartAudioPlayer
+onready var _finish_audio_player : AudioStreamPlayer2D = $FinishAudioPlayer
 
 export var range_value : int = 3
 

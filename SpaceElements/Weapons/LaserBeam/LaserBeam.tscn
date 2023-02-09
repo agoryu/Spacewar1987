@@ -1,0 +1,101 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://SpaceElements/Weapons/LaserBeam/LaserBeam.gd" type="Script" id=1]
+[ext_resource path="res://SpaceElements/Weapons/LaserBeam/glowing_circle.png" type="Texture" id=2]
+[ext_resource path="res://SpaceElements/Weapons/Weapon.tscn" type="PackedScene" id=3]
+
+[sub_resource type="Gradient" id=10]
+offsets = PoolRealArray( 0.00355872, 0.622776 )
+colors = PoolColorArray( 0.776471, 0.776471, 0.776471, 1, 1, 0.996078, 0.996078, 0.588235 )
+
+[sub_resource type="GradientTexture" id=3]
+gradient = SubResource( 10 )
+
+[sub_resource type="Curve" id=11]
+_data = [ Vector2( 0.503289, 0.996591 ), 0.0, 0.0, 0, 0, Vector2( 0.993421, 0 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=5]
+curve = SubResource( 11 )
+
+[sub_resource type="ParticlesMaterial" id=12]
+flag_disable_z = true
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 100.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale = 0.5
+scale_curve = SubResource( 5 )
+color_ramp = SubResource( 3 )
+
+[sub_resource type="Curve" id=13]
+_data = [ Vector2( 0.00328947, 0 ), 0.0, 0.0, 0, 0, Vector2( 0.519737, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.983553, 0 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=9]
+curve = SubResource( 13 )
+
+[sub_resource type="ParticlesMaterial" id=14]
+emission_shape = 2
+emission_box_extents = Vector3( 60, 20, 1 )
+flag_disable_z = true
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = -100.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+tangential_accel = 100.0
+tangential_accel_random = 1.0
+scale = 0.3
+scale_curve = SubResource( 9 )
+
+[sub_resource type="ParticlesMaterial" id=15]
+flag_disable_z = true
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 100.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale = 0.5
+scale_curve = SubResource( 5 )
+color_ramp = SubResource( 3 )
+
+[node name="LaserBeam" instance=ExtResource( 3 )]
+script = ExtResource( 1 )
+max_length = 3000
+growth_time = 0.1
+
+[node name="LaserBeam" type="RayCast2D" parent="." index="5" groups=["weapon"]]
+collision_mask = 50
+
+[node name="FillLine" type="Line2D" parent="LaserBeam" index="0"]
+modulate = Color( 1.5, 1.5, 1.5, 1 )
+points = PoolVector2Array( 0, 0, 320, 0 )
+width = 30.0
+default_color = Color( 0.4, 0.678431, 1, 1 )
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="CastingParticle" type="Particles2D" parent="LaserBeam" index="1"]
+modulate = Color( 1.5, 1.5, 1.5, 1 )
+emitting = false
+process_material = SubResource( 12 )
+texture = ExtResource( 2 )
+
+[node name="BeamParticle" type="Particles2D" parent="LaserBeam" index="2"]
+modulate = Color( 1.5, 1.5, 1.5, 1 )
+emitting = false
+amount = 50
+lifetime = 0.5
+visibility_rect = Rect2( -2500, -2500, 5000, 5000 )
+local_coords = false
+draw_order = 1
+process_material = SubResource( 14 )
+texture = ExtResource( 2 )
+
+[node name="CollisionParticle" type="Particles2D" parent="LaserBeam" index="3"]
+modulate = Color( 1.5, 1.5, 1.5, 1 )
+emitting = false
+amount = 16
+lifetime = 0.3
+process_material = SubResource( 15 )
+texture = ExtResource( 2 )
+
+[node name="Tween" type="Tween" parent="LaserBeam" index="4"]

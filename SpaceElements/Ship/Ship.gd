@@ -36,6 +36,7 @@ var is_invincible : bool = false setget set_is_invincible
 
 func _ready():
 	init_data()
+	_action_timer.start()
 	if not is_player:
 		_animation_player.play("spawn")
 	else:

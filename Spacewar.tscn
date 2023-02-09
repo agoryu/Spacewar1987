@@ -48,3 +48,4 @@ __meta__ = {
 }
 
 [node name="AsteroidSpawner" parent="." instance=ExtResource( 6 )]
+autostart = false

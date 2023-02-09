@@ -23,5 +23,8 @@ texture = ExtResource( 3 )
 [node name="CollisionShape2D" parent="." index="1"]
 shape = SubResource( 1 )
 
+[node name="Timer" parent="." index="4"]
+wait_time = 5.0
+
 [node name="CollisionShape2D" parent="Area2D" index="0"]
 shape = SubResource( 2 )

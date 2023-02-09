@@ -10,5 +10,4 @@ script = ExtResource( 2 )
 ship_info = ExtResource( 4 )
 
 [node name="Sprite" parent="." index="1"]
-scale = Vector2( 0.1, 0.1 )
 texture = ExtResource( 3 )

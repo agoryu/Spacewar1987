@@ -9,9 +9,8 @@
 script = ExtResource( 3 )
 ship_info = ExtResource( 4 )
 
-[node name="Sprite" parent="." index="0"]
-scale = Vector2( 0.02, 0.02 )
+[node name="Sprite" parent="." index="1"]
 texture = ExtResource( 2 )
 
-[node name="ActionTimer" parent="." index="9"]
+[node name="ActionTimer" parent="." index="10"]
 wait_time = 3.0

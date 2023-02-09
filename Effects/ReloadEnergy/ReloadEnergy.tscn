@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Effects/Shield/sparkle.png" type="Texture" id=1]
+
+[sub_resource type="Curve" id=3]
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.697561, 0.669318 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.251136 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=4]
+curve = SubResource( 3 )
+
+[sub_resource type="ParticlesMaterial" id=5]
+emission_shape = 5
+emission_ring_radius = 200.0
+emission_ring_inner_radius = 50.0
+emission_ring_height = 1.0
+emission_ring_axis = Vector3( 0, 0, 1 )
+flag_disable_z = true
+direction = Vector3( 0, 0, 0 )
+gravity = Vector3( 0, 0, 0 )
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+radial_accel = -600.0
+scale = 0.15
+scale_curve = SubResource( 4 )
+color = Color( 0.0235294, 0.772549, 0.956863, 1 )
+
+[node name="Particles2D" type="Particles2D"]
+emitting = false
+amount = 24
+lifetime = 0.3
+process_material = SubResource( 5 )
+texture = ExtResource( 1 )
