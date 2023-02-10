@@ -109,6 +109,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://SpaceElements/Ship/Allies/RadHar/RadHar.gd"
 }, {
+"base": "Particles2D",
+"class": "ReloadEnergy",
+"language": "GDScript",
+"path": "res://Effects/ReloadEnergy/ReloadEnergy.gd"
+}, {
 "base": "Reference",
 "class": "ResourceManager",
 "language": "GDScript",
@@ -190,6 +195,7 @@ _global_script_class_icons={
 "PowerupCard": "",
 "PowerupMenu": "",
 "RadHar": "",
+"ReloadEnergy": "",
 "ResourceManager": "",
 "SamOid": "",
 "Shield": "",

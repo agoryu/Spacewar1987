@@ -17,6 +17,8 @@ func add_ship(ship: Ship):
 	max_value += ship.energy_container
 	value += ship.energy_container
 	energy_consume += ship.energy_consume
+	if ship.is_in_group("energyzer"):
+		ship.connect("reload_energy", self, "reload_energy")
 	
 func loose_ship(ship: Ship):
 	max_value -= ship.energy_container
@@ -27,3 +29,6 @@ func consume_energy():
 	value -= energy_consume
 	if max_value * activate_alarm_limit / 100 >= value:
 		emit_signal("activate_alarm")
+		
+func reload_energy(energy_value : int):
+	value += energy_value
